@@ -8,6 +8,7 @@ Tutorials
     :titlesonly:
 
     howtos/rdtraining
+    howtos/jstraining
     howtos/themes
     howtos/website
     howtos/backend
