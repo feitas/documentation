@@ -10,7 +10,8 @@ date, and accurate:
   year end and confirm that your ending book balances agree with
   your bank statement balances.
 
--  Verify that all **customer invoices** have been entered and approved.
+-  Verify that all **customer invoices** have been entered and approved and that there are no more
+   draft invoices.
 
 -  Confirm that you have entered and agreed all **vendor bills**.
 
@@ -18,6 +19,10 @@ date, and accurate:
 
 - Corroborate that all **received payments** have been entered and
   recorded accurately.
+
+- Close suspense accounts.
+
+- Book all the depreciation and deferred revenues.
 
 Year-end checklist
 ==================
@@ -64,30 +69,38 @@ they may want to have paper copies of all balance sheet items (such as
 loans, bank accounts, prepayments, sales tax statements, etc...) to
 agree these against your Odoo balances.
 
-During this process, it is good practice to set the **Lock date for
-Non-Advisers** to the last day of the preceding financial year, which is
-set under the accounting configuration. This way, the accountant can be
-confident that nobody is changing the previous year transactions
+During this process, it is good practice to set the **Lock date for Non-Advisers** to the last day
+of the preceding financial year, which is set under the accounting configuration. This way, the
+accountant can be confident that nobody is changing the previous year transactions
 while auditing the books.
 
 .. image:: media/close_fiscal_year01.png
    :align: center
 
+.. warning::
+   On this screen, you also have a field :guilabel: `all users Lock date`. This lock date will
+   prevent journal entries creation prior to the defined date for all users.
+   This lock date is irreversible and can’t be removed.
+
+.. note::
+   The all journal entries lock date prevents journal entry creation or modification prior the
+   defined date except for advisor users.
+   This lock date is reversible and can be removed.
+
 Closing the fiscal year
 =======================
 
-In Odoo there is no need to do a specific year end closing entry in order to
-close out income statement accounts. The reports are created in
-real-time, meaning that the **Income statement** corresponds directly with
-the year-end date you specify in Odoo. Therefore, any time you generate
-the **Income Statement**, the beginning date will correspond with the
-beginning of the **Fiscal Year** and the account balances will all be 0.
+There is no need to do a specific year end closing entry in order to close out your Profit and Loss
+statement.
+The reports are created in real-time, meaning that your Profit and Loss statement corresponds
+directly with the year end-date you specify in Odoo. Therefore, any time you generate the
+**Income Statement**, the beginning date will correspond with the beginning of the **Fiscal Year**
+and the account balances will all be 0.
 
-Once the accountant/bookkeeper has created the journal entry to allocate
-the **Current Year Earnings**, you should set the **Lock Date** to the last day
-of the fiscal year. Making sure that before doing so, you confirm
-whether or not the current year earnings in the **Balance Sheet** is
-correctly reporting a 0 balance.
+Once the accountant/bookkeeper has created the journal entry to allocate the
+**Current Year Earnings**, you should set the **Lock Date** to the last day of the fiscal year.
+Making sure that before doing so, you confirm whether or not the current year earnings in the
+**Balance Sheet** is correctly reporting a 0 balance.
 
 .. seealso::
   * :doc:`fiscal_year`
