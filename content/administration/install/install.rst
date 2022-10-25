@@ -163,7 +163,7 @@ Repository
 
       .. code-block:: console
 
-         $ sudo dnf config-manager --add-repo=https://nightly.odoo.com/15.0/nightly/rpm/odoo.repo
+         $ sudo dnf config-manager --add-repo=https://nightly.odoo.com/16.0/nightly/rpm/odoo.repo
          $ sudo dnf install -y odoo
          $ sudo systemctl enable odoo
          $ sudo systemctl start odoo
@@ -183,7 +183,7 @@ Distribution package
       <download_>`_.
 
       .. note::
-         Odoo 15.0 'deb' package currently supports `Debian 11 (Bullseye)`_, `Ubuntu 20.04 (Focal)`_
+         Odoo 16.0 'deb' package currently supports `Debian 11 (Bullseye)`_, `Ubuntu 22.04 (Jammy)`_
          or above.
 
       Next, execute the following commands **as root**:
@@ -224,13 +224,13 @@ Distribution package
       <download_>`_.
 
       .. note::
-         Odoo 15.0 'rpm' package supports Fedora 34.
+         Odoo 16.0 'rpm' package supports Fedora 36.
 
       Once downloaded, the package can be installed using the 'dnf' package manager:
 
       .. code-block:: console
 
-         $ sudo dnf localinstall odoo_15.0.latest.noarch.rpm
+         $ sudo dnf localinstall odoo_16.0.latest.noarch.rpm
          $ sudo systemctl enable odoo
          $ sudo systemctl start odoo
 
