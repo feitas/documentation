@@ -1110,7 +1110,7 @@ header {
             @include media-breakpoint-down(md) {
                 display:none;
             }
-            content: '#{$i-view}';
+            content: '#{$i-view}'; // FIXME icon is cropped
         }
 
         &:not(.collapsed), &::after {
@@ -1123,12 +1123,18 @@ header {
     }
 
     .accordion-collapse {
-        border: 1px solid #f4f4f4;
-        border-top: 0;
-        margin-top: 1em;
-        border-radius: 0;
-        background-color: white;
+        padding-top: .5rem;
+        border-bottom: 0;
+
+        .accordion-body {
+            padding: 0;
+        }
     }
+
+    code, div[class^="highlight"] {
+        margin-bottom: 0;
+        border-color: tint-color($doc-exercise, 50%);
+    } // FIXME should not be overridden
 }
 
 //------------------------------------------------------------------------------
