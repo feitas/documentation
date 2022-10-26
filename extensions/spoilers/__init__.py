@@ -24,7 +24,9 @@ class Spoiler(SphinxDirective):
         content_id = f'o_spoiler_content_{spoiler_id}'
 
         # Create the main accordion container.
-        accordion_container = Container(classes=['accordion', 'accordion-flush'])
+        accordion_container = Container(
+            classes=['accordion', 'accordion-flush', 'o_spoiler', 'alert']
+        )  # Reuse the SCSS rules already defined for `alert`. Same thing for `alert-title`.
 
         # Create the accordion item container.
         accordion_item_container = Container(classes=['accordion-item'])
@@ -76,6 +78,9 @@ class Header(nodes.General, nodes.Element):
 class Button(nodes.General, nodes.Element):
     custom_tag_name = 'button'
 
+class P(nodes.General, nodes.Element):
+    custom_tag_name = 'p'
+
 
 def visit_node(translator, node):
     custom_attr = {k: v for k, v in node.attributes.items() if k not in node.known_attributes}
@@ -91,6 +96,7 @@ def setup(app):
     app.add_node(Container, html=(visit_node, depart_node))
     app.add_node(Header, html=(visit_node, depart_node))
     app.add_node(Button, html=(visit_node, depart_node))
+    app.add_node(P, html=(visit_node, depart_node))
     return {
         'parallel_read_safe': True,
         'parallel_write_safe': True,

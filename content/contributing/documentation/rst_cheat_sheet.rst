@@ -722,32 +722,24 @@ Spoilers
 .. exercise::
    Do something
 
-.. spoiler:: Showcase for MORM
+   .. code-block:: python
 
-   Hello! **bold** *italic*
+      print("hello world")
 
-   .. warning::
-      warn
+.. spoiler:: Exercise
 
    .. code-block:: python
 
       print("hello world")
 
-   .. example::
+.. exercise::
+   Do something
 
-      .. tabs::
+   .. spoiler:: Exercise
 
-         .. tab:: A
+      .. code-block:: python
 
-            a
-
-         .. tab:: B
-
-            b
-
-         .. code-tab:: python Hello
-
-            print("hello")
+         print("hello world")
 
 -----
 
