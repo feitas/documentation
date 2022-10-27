@@ -1094,48 +1094,33 @@ header {
 
 .o_spoiler {
     border-color: tint-color($doc_exercise, 30%);
-    background-color: tint-color($doc_exercise, 90%);
-    color: shade-color($doc_exercise, 35%);
+    background-color: $o-accordion-bg;
 
     .accordion-button {
-        line-height: 1em;
-        padding: 0;
-        border-bottom: 0;
-        color: shade-color($doc_exercise, 35%);
-        background-color: tint-color($doc_exercise, 90%);
-        @include font-size($font-size-base);
-        font-weight: $fw_bold;
-
-        &:before {
-            @include o-inline-icon($i-info, 0 .4rem 0 0, baseline, $font-size-base, inherit);
-            @include media-breakpoint-down(md) {
-                display:none;
-            }
-            content: '#{$i-view}'; // FIXME icon is cropped
-        }
-
-        &:not(.collapsed), &::after {
-            color: shade-color($doc_exercise, 35%);
-        }
-
         &::after {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-        } // Remove the blue tint on the collapse arrow.
-    }
+            margin: 0 .2rem 0 0;
+        }
 
-    .accordion-collapse {
-        padding-top: .5rem;
-        border-bottom: 0;
-
-        .accordion-body {
-            padding: 0;
+        &.collapsed::after {
+            transform: rotate(-90deg);
         }
     }
 
-    code, div[class^="highlight"] {
-        margin-bottom: 0;
-        border-color: tint-color($doc-exercise, 50%);
-    } // FIXME should not be overridden
+    .accordion-body {
+        #wrap & { // FIXME: Temporary workaround to take priority over pre-existing rueles
+            > *:first-child() {
+                margin-top: 1rem;
+            }
+
+            code, div[class^="highlight"] {
+                border-color: tint-color($doc-exercise, 50%);
+
+                &:first-child():last-child() {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
 }
 
 //------------------------------------------------------------------------------

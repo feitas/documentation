@@ -37,7 +37,7 @@ class Spoiler(SphinxDirective):
         accordion_item_container.append(header)
 
         # Create the toggle button.
-        button = Button(classes=['accordion-button', 'collapsed'], **{
+        button = Button(classes=['accordion-button', 'collapsed', 'flex-row-reverse', 'justify-content-end', 'fw-bold', 'p-0', 'border-bottom-0'], **{
             'type': 'button',
             'data-bs-toggle': 'collapse',
             'data-bs-target': f'#{content_id}',
@@ -54,7 +54,7 @@ class Spoiler(SphinxDirective):
         # Create the accordion collapse container.
         accordion_collapse_container = Container(
             ids=[content_id],
-            classes=['accordion-collapse', 'collapse'],
+            classes=['accordion-collapse', 'collapse', 'border-bottom-0'],
             **{'aria-labelledby': heading_id},
         )
         accordion_item_container.append(accordion_collapse_container)
