@@ -7,7 +7,7 @@ simplification of bank transfers denominated in EURO. With **SEPA Direct Debit**
 sign a **mandate** that authorizes you to collect future payments from their bank accounts. This is
 particularly useful for recurring payments based on a subscription.
 
-You can record customer mandates in Odoo, and generate XML files containing pending payments made
+You can record customer mandates in Odoo, and generate .XML files containing pending payments made
 with an SDD mandate.
 
 .. note::
@@ -19,8 +19,8 @@ with an SDD mandate.
 Configuration
 =============
 
-Go to :menuselection:`Accounting --> Configuration --> Settings`, activate **SEPA Direct Debit
-(SDD)** and click on *Save*. Enter your company's **Creditor Identifier**. This number is provided
+Go to :menuselection:`Configuration --> Settings`, activate **SEPA Direct Debit (SDD)**
+and click on :guilabel:`Save`. Enter your company's **Creditor Identifier**. This number is provided
 by your bank institution, or the authority responsible for delivering them.
 
 .. image:: batch_sdd/batch-sdd-creditor-identifier.png
@@ -36,20 +36,15 @@ Create a mandate
 The SEPA Direct Debit Mandate is the document that your customers sign to authorize you to collect
 money directly from their bank accounts.
 
-To create a new mandate, go to :menuselection:`Accounting --> Customers --> Direct Debit Mandates`,
-click on *Create*, and fill out the form.
-
-.. image:: batch_sdd/batch-sdd-mandate-form.png
-   :align: center
-   :alt: Fill out SEPA Direct Debit in Odoo Accounting
-
-Export the PDF file by clicking on *Print*. It is then up to your customer to sign this document.
-Once done, upload the signed file in the **Original Document** field, and click on *Validate* to
-start running the mandate.
+To create a new mandate, go to :menuselection:`Customers --> Direct Debit Mandates`,
+click on :guilabel:`Create`, and fill out the form.
+Export the PDF file by clicking on :guilabel:`Print`. It is then up to your customer to sign this
+document. Once done, upload the signed file in the **Original Document** field, and click on
+:guilabel:`Validate` to start running the mandate.
 
 .. important::
    Make sure that the **IBAN bank accounts details** are correctly recorded on the debtor’s contact
-   form, under the *Accounting* tab, and in your own :doc:`Bank Account
+   form, under the **Accounting** tab, and in your own :doc:`Bank Account
    <../../bank/setup/bank_accounts>` settings.
 
 SEPA Direct Debit as a Payment Method
@@ -59,49 +54,42 @@ SEPA Direct Debit can be used as a payment method both on your **eCommerce** or 
 Portal** by activating SDD as a **Payment Acquirer**. With this method, your customers can create
 and sign their mandates themselves.
 
-To do so, go to :menuselection:`Accounting --> Configuration --> Payment Acquirers`, click on *SEPA
-Direct Debit*, and set it up according to your needs.
+To do so, go to :menuselection:`Configuration --> Payment Acquirers`, click on
+:guilabel:`SEPA Direct Debit`, and set it up according to your needs.
 
 .. important::
-   Make sure to change the **State** field to *Enabled*, and to check **Online Signature**, as this
-   is necessary to let your customers sign their mandates.
+   Make sure to change the :guilabel:`State` field to :guilabel:`Enabled`, and to check
+   :guilabel:`Online Signature`, as this is necessary to let your customers sign their mandates.
 
 Customers using SDD as payment method get prompted to add their IBAN, email address, and to sign
 their SEPA Direct Debit mandate.
 
-.. todo::
-   Add link to future **Payment Acquirer** documentation.
-
 Close or revoke a mandate 
 -------------------------
 
-Direct Debit mandates are closed automatically after their *End Date*. If this field is left blank,
-the mandate keeps being *Active* until it is *Closed* or *Revoked*.
-
-.. image:: batch_sdd/batch-sdd-revoke-close.png
-   :align: center
-   :alt: Close or Revoke an SDD Mandate in Odoo Accounting
+Direct Debit mandates are closed automatically after their **End Date**. If this field is left
+blank, the mandate keeps being **Active** until it is **Closed** or **Revoked**.
 
 Clicking on **Close** updates the mandate’s end day to the current day. This means that invoices
 issued after the present day will not be processed with an SDD payment.
 
-Clicking on **Revoke** disables the mandate immediately. No SDD payment can be registered anymore,
-regardless of the invoice’s date. However, payments that have already been registered are still
-included in the next SDD XML file.
+Clicking on :guilabel:`Revoke` disables the mandate immediately. No SDD payment can be registered
+anymore, regardless of the invoice’s date. However, payments that have already been registered are
+still included in the next SDD XML file.
 
 .. warning::
-   Once a mandate has been *closed* or *revoked*, it cannot be reactivated.
+   Once a mandate has been :guilabel:`closed` or :guilabel:`revoked`, it cannot be reactivated.
 
-Get paid with SDD Batch Payments
+Get paid with SDD batch payments
 ================================
 
-Customer Invoices 
+Customer invoices
 -----------------
 
 You can register SDD payments for invoices issued to customers who have an active SDD mandate.
 
-To do so, open the invoice, click on *Register Payment*, and choose *SEPA Direct Debit* as payment
-method.
+To do so, open the invoice, click on :guilabel:`Register Payment`, and choose
+:guilabel:`SEPA Direct Debit` as payment method.
 
 Generate SEPA Direct Debit XML files to submit payments
 -------------------------------------------------------
@@ -114,22 +102,10 @@ process all payments at once.
    required by the SEPA customer-to-bank Implementation Guidelines, which ensures compatibility with
    the banks.
 
-To generate your XML file for the pending SDD payments, go to the related *bank journal* on your
-*Accounting dashboard*, then click on *Direct Debit Payments to Collect*.
-
-.. image:: batch_sdd/batch-sdd-collect.png
-   :align: center
-   :alt: Start the SDD payments collection in Odoo Accounting
-
-Select all the payments you want to include in your SDD XML file, then click on *Action* and select
-*Create Batch Payment*.
-
-.. image:: batch_sdd/batch-sdd-batch.png
-   :align: center
-   :alt: Create a batch payment with all the SDD payments in Odoo Accounting
-
-Odoo then takes you to your *Batch Payment*’s form. Click on *Validate* and download the SDD XML
-file.
+To generate your XML file of multiple pending SDD payments, you can create a batch payment.
+To do so go to :menuselection:`Customers --> Payments`, select the needed payments and then click on
+:guilabel:`Action` and finally :guilabel:`Create a batch Payment`. Once you click on
+:guilabel:`Validate`, the .XML file will directly be available for download.
 
 .. image:: batch_sdd/batch-sdd-xml.png
    :align: center
@@ -139,11 +115,10 @@ Finally, upload this file to your online banking interface to process the paymen
 
 .. tip::
    You can retrieve all the generated SDD XML files by going to
-   :menuselection:`Accounting --> Configuration --> Customers --> Batch Payments`.
+   :menuselection:`Customers --> Batch Payments`.
 
 .. seealso::
    * :doc:`batch`
    * :doc:`../../bank/setup/bank_accounts`
-   * `Odoo Academy: SEPA Direct Debit Mandates (SDD) <https://www.odoo.com/r/Zxs>`_
    * `List of all SEPA countries
      <https://www.europeanpaymentscouncil.eu/document-library/other/epc-list-sepa-scheme-countries>`_
